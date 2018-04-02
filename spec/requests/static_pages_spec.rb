@@ -1,10 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "StaticPages", type: :request do
-  describe "GET /static_pages" do
-    it "works! (now write some real specs)" do
-      get static_pages_index_path
-      expect(response).to have_http_status(200)
+describe "Static pages" do
+  
+  subject { page }
+
+  describe "About us" do
+    
+    before { visit about_us_path }
+
+    it "Displays the correct content" do
+      is_expected.to have_selector('h1', text: 'О нас') 
+      is_expected.to have_title('About us') 
     end
   end
 end

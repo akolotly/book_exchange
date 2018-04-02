@@ -37,7 +37,9 @@ gem 'turbolinks', '~> 5'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'rake'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.0.0'
+# для бутстрапа c js
+# gem 'jquery-rails'
 gem 'slim'
 gem 'pg'
 
