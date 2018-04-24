@@ -17,5 +17,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'selenium-webdriver'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
 end
 
