@@ -16,7 +16,7 @@ describe Book, type: :model do
   describe 'Validation' do
     context 'When title is empty' do
       it 'not be valid' do
-        subject.title = ''
+        subject.title = ' '
         is_expected.not_to be_valid
       end
     end
