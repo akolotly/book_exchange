@@ -10,5 +10,7 @@ html
 
   body.main-background
     = render 'layouts/header'
+    - flash.each do |key, value| 
+        = content_tag(:div, value, class: "alert alert-#{key}") 
     = yield
     = render 'layouts/footer'

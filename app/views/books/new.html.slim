@@ -1,0 +1,12 @@
+- provide(:title, 'New book')
+.main.container.p-3
+
+  h1.text-center Внесение книги в каталог
+  p.margin-bottom-30
+  = render 'shared/error_messages', object: @book
+
+  = form_for(@book) do |f|
+    = render 'fields', f: f
+    .form-group.row
+      .col-sm-10
+        = f.submit 'Создать книгу', class: 'btn btn-primary btn-outline-secondary'
