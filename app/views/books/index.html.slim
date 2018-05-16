@@ -2,19 +2,18 @@
 .main.container.p-3
 
   h1.text-center Все книги
-  br
+  p.margin-bottom-30
   a.btn.btn-outline-secondary.btn-primary href='books/new'
     | Добавить книгу в каталог
-  br
-  br
+  p.margin-bottom-30
   ul.list-group
     - @books.each do |book|
       li.list-group-item.list-group-item-action
         .d-flex
           .mr-auto.p-2
-            = link_to book.title, book, style: 'color: cadetblue'
+            = link_to book.title, book
           .p-2
-            = link_to 'удалить', book, method: :delete, data: { confirm: 'Вы уверены?' }, style: 'color: cadetblue'
+            = link_to 'удалить', book, method: :delete, data: { confirm: 'Вы уверены?' }
           .p-2
-            = link_to 'редактировать', edit_book_path(book), style: 'color: cadetblue'
+            = link_to 'редактировать', edit_book_path(book)
     end

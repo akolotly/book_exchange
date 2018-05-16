@@ -19,4 +19,4 @@ Metrics/LineLength:
 
 Metrics/BlockLength:
   Exclude:
-    - "**/*_spec.rb"
+    - 'spec/**/*'

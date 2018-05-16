@@ -7,13 +7,13 @@ describe 'Book pages' do
     describe 'Page accessibility' do
       before { visit new_book_path }
 
-      it 'Displays the correct content' do
+      it 'Displays correct content' do
         is_expected.to have_selector('h1', text: 'Внесение книги в каталог')
         is_expected.to have_title('New book')
-      end
 
-      it 'Should render the form' do
+        is_expected.to have_selector('form#new_book')
         is_expected.to have_selector('label', text: 'Заголовок книги')
+        is_expected.to have_selector('input[name="book[title]"]')
       end
     end
 
@@ -85,8 +85,6 @@ describe 'Book pages' do
     describe 'Update action' do
       before { visit edit_book_path(book) }
 
-      let(:submit) { 'Редактировать книгу' }
-
       context 'With invalid information' do
         before do
           fill_in 'Заголовок книги', with: ''
@@ -106,14 +104,13 @@ describe 'Book pages' do
         it 'Should show new book title' do
           is_expected.to have_title(new_title)
           is_expected.to have_selector('div.alert.alert-success', text: 'Книга отредактирована!')
+          expect(book.reload.title).to eq new_title
         end
-
-        specify { expect(book.reload.title).to eq new_title }
       end
     end
   end
 
-  describe 'Show all books' do
+  describe 'All books page' do
     let!(:book1) { FactoryBot.create(:book) }
     let!(:book2) { FactoryBot.create(:book) }
     let!(:book3) { FactoryBot.create(:book) }
@@ -128,9 +125,9 @@ describe 'Book pages' do
         is_expected.to have_selector('li', text: book1.title)
         is_expected.to have_selector('li', text: book2.title)
         is_expected.to have_selector('li', text: book3.title)
-      end
 
-      it { is_expected.to have_link('редактировать', href: edit_book_path(book1)) }
+        is_expected.to have_link('редактировать', href: edit_book_path(book1))
+      end
     end
 
     describe 'Delete links' do

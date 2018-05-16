@@ -1,13 +1,11 @@
 class BooksController < ApplicationController
-  before_action :find_book, only: %i[edit update destroy]
+  before_action :find_book, only: %i[edit update destroy show]
 
   def index
     @books = Book.all
   end
 
-  def show
-    @book = Book.find(params[:id])
-  end
+  def show; end
 
   def new
     @book = Book.new
