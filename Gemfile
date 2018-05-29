@@ -19,5 +19,6 @@ group :development, :test do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
+  gem 'pry'
 end
 

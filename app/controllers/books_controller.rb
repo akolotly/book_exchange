@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :find_book, only: %i[edit update destroy show]
 
   def index
-    @books = Book.all
+    @books = SearchBook.new(search_params).call
   end
 
   def show; end
@@ -46,5 +46,9 @@ class BooksController < ApplicationController
 
   def find_book
     @book = Book.find(params[:id])
+  end
+
+  def search_params
+    params.fetch(:search, {}).permit(:title)
   end
 end
