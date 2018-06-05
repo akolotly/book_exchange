@@ -1,14 +1,10 @@
 - provide(:title, 'Books')
 .main.container.p-3
 
-  h1.text-center Все книги
-  p.margin-bottom-30
-  = render 'search_book'
-  p.margin-bottom-30
-  p.margin-bottom-30
-  a.btn.btn-outline-secondary.btn-primary href='books/new'
+  h1.text-center.margin-bottom-30 Все книги
+  .margin-bottom-30 = render 'search_book'
+  a.margin-bottom-30.btn.btn-outline-secondary.btn-primary href='books/new'
     | Добавить книгу в каталог
-  p.margin-bottom-30
   ul.list-group
     - @books.each do |book|
       li.list-group-item.list-group-item-action

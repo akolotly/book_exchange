@@ -1,8 +1,7 @@
 - provide(:title, 'New book')
 .main.container.p-3
 
-  h1.text-center Внесение книги в каталог
-  p.margin-bottom-30
+  h1.text-center.margin-bottom-30 Внесение книги в каталог
   = render 'shared/error_messages', object: @book
 
   = form_for(@book) do |f|

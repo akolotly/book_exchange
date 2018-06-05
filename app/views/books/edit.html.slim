@@ -1,8 +1,7 @@
 - provide(:title, 'Edit book')
 .main.container.p-3
 
-  h1.text-center Редактирование книги
-  p.margin-bottom-30
+  h1.text-center.margin-bottom-30 Редактирование книги
   = render 'shared/error_messages', object: @book
 
   = form_for(@book) do |f|
