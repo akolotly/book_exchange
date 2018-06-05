@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :find_book, only: %i[edit update destroy show]
 
   def index
-    @books = Book.all
+    @books = SearchBook.new(search_params).call
   end
 
   def show; end
@@ -24,7 +24,7 @@ class BooksController < ApplicationController
   def edit; end
 
   def update
-    if @book.update_attributes(book_params)
+    if @book.update(book_params)
       flash[:success] = 'Книга отредактирована!'
       redirect_to @book
     else
@@ -45,6 +45,11 @@ class BooksController < ApplicationController
   end
 
   def find_book
-    @book = Book.find(params[:id])
+    @book = Book.find_by(id: params[:id])
+    redirect_to books_url if @book.nil?
+  end
+
+  def search_params
+    params.fetch(:search, {}).permit(:title)
   end
 end

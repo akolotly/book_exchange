@@ -121,6 +121,9 @@ describe 'Book pages' do
       it { is_expected.to have_title('Books') }
       it { is_expected.to have_selector('h1', text: 'Все книги') }
 
+      it { is_expected.to have_selector('label', text: 'Название книги:') }
+      it { is_expected.to have_selector('input[name="search[title]"]') }
+
       it 'Should list each user' do
         is_expected.to have_selector('li', text: book1.title)
         is_expected.to have_selector('li', text: book2.title)
